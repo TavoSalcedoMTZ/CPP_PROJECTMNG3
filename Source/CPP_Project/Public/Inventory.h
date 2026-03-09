@@ -7,6 +7,8 @@
 #include "Inventory.generated.h"
 
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnCoundAdd, int32, amout);
+
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class CPP_PROJECT_API UInventory : public UActorComponent
 {
@@ -27,10 +29,17 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
-	virtual void AddCoints(int32 Amount);
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Meta = (ForceAsFuncion))
+	 void AddCoints(int32 Amount);
+	 virtual void AddCoints_Implementation(int32 Amount);
+
 	virtual void RemoveCoints(int32 Amount);
 	
 	virtual void AddHealth(float Amount);
 	virtual void RemoveHealth(float Amount);
+
+
+	UPROPERTY(BlueprintAssignable, BlueprintReadWrite, Category = "Inventory")
+	FOnCoundAdd OnCountUpdated;
 		
 };

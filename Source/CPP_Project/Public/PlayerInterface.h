@@ -19,4 +19,4 @@ public:
 	
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "Player")
 	void Interact();
-};
+};	
