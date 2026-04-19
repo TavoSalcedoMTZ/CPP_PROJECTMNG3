@@ -29,6 +29,10 @@ public:
 	void PlayMusic(USoundBase* sound, bool loop, float pitch);
 
 
+	UFUNCTION(BlueprintCallable)
+	float GetVolume(ETracks _track);
+
+
 
 	 float mainVolume = 1;
 	 float musicVolume = 1;

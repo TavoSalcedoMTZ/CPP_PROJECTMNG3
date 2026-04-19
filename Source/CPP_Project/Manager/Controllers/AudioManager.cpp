@@ -28,7 +28,7 @@ void UAudioManager::SetVolume(float vol, ETracks track)
 	default:
 		break;		
 	}
-
+	GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Valor cambiado en ")+ UEnum::GetValueAsString(track)+ TEXT(" a ") + FString::SanitizeFloat(vol));
 
 }
 
@@ -56,4 +56,21 @@ void UAudioManager::PlayMusic(USoundBase* Sound, bool bLoop, float Pitch)
         _audioComp->Play();
         _audioComp->bIsUISound = true;
     }
+}
+
+float UAudioManager::GetVolume(ETracks _track)
+{
+	switch (_track)
+	{
+	case ETracks::Main:
+		return mainVolume;
+	case ETracks::Music:
+		return musicVolume;
+	case ETracks::SFX:
+		return sfxVolume;
+	default:
+		return 0.0f;
+
+
+	}
 }
