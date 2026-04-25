@@ -31,10 +31,25 @@ void APickupKey::OnOverlapBegin(
 {
 	if (OtherActor && OtherActor != this)
 	{
+	
+
+
+
 		if (OtherActor->GetClass()->ImplementsInterface(UPlayerInterface::StaticClass()))
 		{
-			IPlayerInterface::Execute_HasKey(OtherActor, true);
-			IPlayerInterface::Execute_SendKeyReference(OtherActor, this);
+
+
+			if (autoOpen)
+			{
+				CallEvent();
+				return;
+			}
+			else {
+
+				IPlayerInterface::Execute_HasKey(OtherActor, true);
+				IPlayerInterface::Execute_SendKeyReference(OtherActor, this);
+
+			}
 		}
 	}
 }

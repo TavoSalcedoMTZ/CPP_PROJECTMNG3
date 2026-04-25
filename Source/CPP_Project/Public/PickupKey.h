@@ -31,6 +31,9 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	USphereComponent* SphereCollision;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Key")
+	bool autoOpen;
+
 	UFUNCTION()
 	void OnOverlapBegin(
 		UPrimitiveComponent* OverlappedComp,
