@@ -53,5 +53,9 @@ public:
 	 TObjectPtr<UAudioComponent> _audioComp;
 
 
+	 UPROPERTY(BlueprintReadWrite)
+	  FString currentSong_TXT = "None";
+
+
 	
 };

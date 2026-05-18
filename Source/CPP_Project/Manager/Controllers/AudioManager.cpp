@@ -48,7 +48,8 @@
 				bLoop   
 			);
 		}
-		else
+
+		currentSong_TXT = Sound->GetName();	
 		{
        
 			_audioComp->SetSound(Sound);
@@ -93,6 +94,8 @@
 					if (entry.Name == name)
 					{
 						PlayMusic(entry.Sound, loop, pitch);
+
+						currentSong_TXT = name.ToString();
 					}
 				}
 			}
